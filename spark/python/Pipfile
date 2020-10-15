@@ -4,10 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-wikipedia-api = "=="
+requests = "==2.24.0"
+beautifulsoup4 = "==4.9.3"
+lxml = "==4.5.2"
 
 [dev-packages]
-pyspark = "==2.4.0"
+pyspark = "==2.4.5"
 ipython = "*"
 "flake8" = "*"
 

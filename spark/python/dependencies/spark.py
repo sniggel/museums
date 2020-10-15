@@ -4,10 +4,10 @@ spark.py
 Module containing helper function for use with Apache Spark
 """
 
-import __main__
-
-from os import environ, listdir, path
 import json
+from os import environ, listdir, path, getcwd
+
+import __main__
 from pyspark import SparkFiles
 from pyspark.sql import SparkSession
 
@@ -85,12 +85,21 @@ def start_spark(app_name='my_spark_app', master='local[*]', jar_packages=[],
 
     # get config file if sent to cluster with --files
     spark_files_dir = SparkFiles.getRootDirectory()
+    cwd = getcwd()
+    print(f'{cwd}/configs')
     config_files = [filename
-                    for filename in listdir(spark_files_dir)
+                    for filename in listdir(f'{cwd}/configs')
                     if filename.endswith('config.json')]
 
+    # config_files = [filename
+    #                 for filename in listdir(spark_files_dir)
+    #                 if filename.endswith('config.json')]
+
     if config_files:
-        path_to_config_file = path.join(spark_files_dir, config_files[0])
+
+        # path_to_config_file = path.join(spark_files_dir, config_files[0])
+        path_to_config_file = path.join(cwd, config_files[0])
+        print(path_to_config_file)
         with open(path_to_config_file, 'r') as config_file:
             config_dict = json.load(config_file)
         spark_logger.warn('loaded config from ' + config_files[0])

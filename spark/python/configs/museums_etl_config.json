@@ -1,0 +1,8 @@
+{
+  "database_address": "172.181.0.2",
+  "database_username": "postgres",
+  "database_password": "postgres",
+  "database_table_name": "museum",
+  "database_name": "museums",
+  "jdbc_driver_class": "org.postgresql.Driver"
+}

@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  # run postgres
+  database:
+    image: postgres:latest
+    # keep the instance running
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: museums
+    ports:
+      - "5432:5432"
+    networks:
+      app_net:
+        ipv4_address: 172.181.0.2
+
+  # run spark
+  sparkinstance:
+    image: sniggel/museums:1.13
+    ports:
+      - "4040"
+    networks:
+      app_net:
+        ipv4_address: 172.181.0.3
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.181.0.0/24
+        gateway: 172.181.0.1
