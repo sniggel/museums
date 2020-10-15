@@ -16,6 +16,7 @@ There are 2 sub-projects within this project:
 2. spark/python: A production approach to generated a postgres database. It combines the usage of pyspark and beautifulsoup4 to parse wikipedia pages into a working database.
 
 # Folder structure
+```
 ./
 ├── jupyter-notebook (proof of concept for the above description, see [README.md](jupyter-notebook/README.md))
 │   ├── environment.yml
@@ -24,6 +25,7 @@ There are 2 sub-projects within this project:
 └── spark (a production approach to creating the database, see [README.md](spark/python/README.md))
     ├── python
     ...
+```
 
 ## Some notes
 ### Run a postgres docker
