@@ -31,3 +31,13 @@ The Database schema is as follow (columns):
 - characteristics: The extra characteristics, this is a json column.
 
 - city_population: The population of the city in which the museum is located.
+
+### note to self
+To build:
+1. run build-dependencies.sh
+2. verify configs folder
+3. verify docker-compose.yml docker tags
+4. to deploy on docker hub, login first then invoke docker-build.sh
+
+To run:
+To run locally, always use run_etl.sh
